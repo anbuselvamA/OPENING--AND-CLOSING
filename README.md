@@ -1,4 +1,4 @@
-# OPENING--AND-CLOSING
+# OPENING-AND-CLOSING
 ## Aim
 To implement Opening and Closing using Python and OpenCV.
 
@@ -6,98 +6,66 @@ To implement Opening and Closing using Python and OpenCV.
 1. Anaconda - Python 3.7
 2. OpenCV
 ## Algorithm:
-
 ### Step1:
 Import the necessary packages
-<br>
-
 ### Step2:
 Create the Text using cv2.putText
-<br>
-
 ### Step3:
 Create the structuring element
-<br>
 
 ### Step4:
 Use Opening operation
-<br>
 
 ### Step5:
 Use Closing Operation
-<br>
 
- 
 ## Program:
-
-``` Python
-DEVELOPED BY : A.ANBUSELVAM
-REGISTER NO : 212222240009
 ```
-
-### Import the necessary packages
-
-``` Python
-import io
-import os
+Developed by: ANBUSELVAM A
+Register Number:212222240009
+```
+### Display the input Image
+```py
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
-```
-### Create the Text using cv2.putText
 
-``` Python
-img = np.zeros((100, 400), dtype='uint8')
+img = np.zeros((350, 1400), dtype='uint8')
 font = cv2.FONT_HERSHEY_SIMPLEX
-cv2.putText(img, 'ETERNITY !', (5, 70), font, 2, (255), 5, cv2.LINE_AA)
+cv2.putText(img, 'HAKUNA MATATA', (15, 200), font, 5, (255), 10, cv2.LINE_AA)
+cv2.imshow('created_text', img)
+cv2.waitKey(0)
 ```
-
-### Create the structuring element
-
-``` Python
-kernel = np.ones((7, 7), np.uint8)
+### Create the structured element
+```py
+struct_ele = np.ones((9, 9), np.uint8)
 ```
-
-### Use Opening operation
-
-``` Python
-imgOpening = cv2.morphologyEx(img,cv2.MORPH_OPEN,kernel)
+### Display the result of Opening
+```py
+opening = cv2.morphologyEx(img, cv2.MORPH_OPEN, struct_ele)
+cv2.imshow('Opening', opening)
+cv2.waitKey(0)
 ```
-
-### Use Closing Operation
-
-``` Python
-imgClosing = cv2.morphologyEx(img,cv2.MORPH_CLOSE,kernel)
-```
-
-### Display Result:
-
-```python
-plt.imshow(img, cmap = 'gray')
-plt.axis("off")
-
-plt.imshow(imgOpening, cmap = 'gray')
-plt.axis("off")
-
-plt.imshow(imgClosing, cmap = 'gray')
-plt.axis("off")
+### Display the result of Closing
+```py
+closing = cv2.morphologyEx(img, cv2.MORPH_CLOSE, struct_ele)
+cv2.imshow('Closing', closing)
+cv2.waitKey(0)
 ```
 ## Output:
 
-### Display the input Image:
+### Display the input Image
 
-![INPUT](/input.png)
-<br>
 
-### Display the result of Opening:
+![Screenshot 2024-04-17 090032](https://github.com/Sudhakaroffical/OPENING--AND-CLOSING/assets/118622513/bad781f7-6480-42d1-aa26-5f746f71e721)
 
-![INPUT](/open.png)
-<br>
 
-### Display the result of Closing:
+### Display the result of Opening
+![Screenshot 2024-04-17 090148](https://github.com/Sudhakaroffical/OPENING--AND-CLOSING/assets/118622513/2464d703-8c36-4282-b2f1-5d8c90ae27bd)
 
-![INPUT](/close.png)
-<br>
+
+### Display the result of Closing
+![Screenshot 2024-04-17 090148](https://github.com/Sudhakaroffical/OPENING--AND-CLOSING/assets/118622513/979f37f9-547b-4cd7-bce4-ab3dfc1bd79d)
+
 
 ## Result
 Thus the Opening and Closing operation is used in the image using python and OpenCV.
