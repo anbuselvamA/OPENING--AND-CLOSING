@@ -11,7 +11,7 @@ Import the necessary packages
 ### Step2:
 Create the Text using cv2.putText
 ### Step3:
-Create the structuring element
+Create the structuring elemenT
 
 ### Step4:
 Use Opening operation
