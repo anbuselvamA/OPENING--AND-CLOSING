@@ -1,4 +1,4 @@
-
+# OPENING-AND-CLOSING
 ## Aim
 To implement Opening and Closing using Python and OpenCV.
 
@@ -8,10 +8,8 @@ To implement Opening and Closing using Python and OpenCV.
 ## Algorithm:
 ### Step1:
 Import the necessary packages
-
 ### Step2:
 Create the Text using cv2.putText
-
 ### Step3:
 Create the structuring element
 
@@ -20,90 +18,54 @@ Use Opening operation
 
 ### Step5:
 Use Closing Operation
- 
+
 ## Program:
 ```
-Developed by : A.Anbuselvam
-Register no : 212222240009
+Developed by: ANBUSELVAM A
+Register Number:212222240009
 ```
-## Import the necessary packages
-```
+### Display the input Image
+```py
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt
+
+img = np.zeros((350, 1400), dtype='uint8')
+font = cv2.FONT_HERSHEY_SIMPLEX
+cv2.putText(img, 'HAKUNA MATATA', (15, 200), font, 5, (255), 10, cv2.LINE_AA)
+cv2.imshow('created_text', img)
+cv2.waitKey(0)
 ```
-## Create the Text using cv2.putText
+### Create the structured element
+```py
+struct_ele = np.ones((9, 9), np.uint8)
 ```
-# Read the color image
-input_image_path = 'kitty.jpg'
-color_image = cv2.imread(input_image_path)
-
-# Convert the color image to grayscale
-gray_image = cv2.cvtColor(color_image, cv2.COLOR_BGR2GRAY)
-
-# Perform edge detection using Canny
-edges = cv2.Canny(gray_image, 100, 200)  # you can adjust the thresholds as needed
-
-# Define the kernel size for erosion and dilation
-kernel_size = 5
-kernel = np.ones((kernel_size, kernel_size), np.uint8)
-
-# Perform erosion
-erosion = cv2.erode(edges, kernel, iterations=1)
-
-# Perform dilation
-dilation = cv2.dilate(edges, kernel, iterations=1)
-
-# Perform opening
-opening = cv2.morphologyEx(edges, cv2.MORPH_OPEN, kernel)
-
-# Perform closing
-closing = cv2.morphologyEx(edges, cv2.MORPH_CLOSE, kernel)
+### Display the result of Opening
+```py
+opening = cv2.morphologyEx(img, cv2.MORPH_OPEN, struct_ele)
+cv2.imshow('Opening', opening)
+cv2.waitKey(0)
 ```
-
-
-## Create the structuring element
-```
-plt.figure(figsize=(15, 10))
-plt.subplot(2, 3, 1)
-plt.imshow(cv2.cvtColor(color_image, cv2.COLOR_BGR2RGB))
-plt.title('Original Color Image')
-plt.axis('on')
-```
-
-
-## Use Opening operation
-```
-plt.subplot(2, 3, 2)
-plt.imshow(opening, cmap='gray')
-plt.title('Opening')
-plt.axis('on')
-```
-
-
-
-## Use Closing Operation
-```
-plt.subplot(2, 3, 3)
-plt.imshow(closing, cmap='gray')
-plt.title('Closing')
-plt.axis('on')
-
-plt.show()
-
+### Display the result of Closing
+```py
+closing = cv2.morphologyEx(img, cv2.MORPH_CLOSE, struct_ele)
+cv2.imshow('Closing', closing)
+cv2.waitKey(0)
 ```
 ## Output:
+
 ### Display the input Image
 
-![Screenshot 2024-04-05 180148](https://github.com/premalatha-sureshbabu/OPENING--AND-CLOSING/assets/120620842/2118970e-5a50-42f9-a226-bd5a2cb459a8)
+
+![Screenshot 2024-04-17 090032](https://github.com/Sudhakaroffical/OPENING--AND-CLOSING/assets/118622513/bad781f7-6480-42d1-aa26-5f746f71e721)
+
 
 ### Display the result of Opening
+![Screenshot 2024-04-17 090148](https://github.com/Sudhakaroffical/OPENING--AND-CLOSING/assets/118622513/2464d703-8c36-4282-b2f1-5d8c90ae27bd)
 
-![Screenshot 2024-04-05 180157](https://github.com/premalatha-sureshbabu/OPENING--AND-CLOSING/assets/120620842/d4dd33ed-41ce-4542-af04-1779bd553fb0)
 
 ### Display the result of Closing
+![Screenshot 2024-04-17 090148](https://github.com/Sudhakaroffical/OPENING--AND-CLOSING/assets/118622513/979f37f9-547b-4cd7-bce4-ab3dfc1bd79d)
 
-![Screenshot 2024-04-05 180212](https://github.com/premalatha-sureshbabu/OPENING--AND-CLOSING/assets/120620842/dca1fcf1-df49-4e08-8f23-8fa421dd5884)
 
 ## Result
 Thus the Opening and Closing operation is used in the image using python and OpenCV.
